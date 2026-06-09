@@ -1,15 +1,18 @@
-const http = require('http');
+const express = require('express');
 const supabase = require('./supabaseClient');
-const app= require('express');
+
+const app = express();
 const port = process.env.PORT || 5000;
 
+// middleware
 app.use(express.json());
 
-const server = http.createServer((req, res) => {
-    res.writeHead(200, { 'Content-Type': 'text/plain' });
-    res.end('Server is alive');
+// test route
+app.get('/', (req, res) => {
+  res.send('Server is alive');
 });
 
-server.listen(port, () => {
-    console.log(`Server is running on port ${port}`);
+// start server
+app.listen(port, () => {
+  console.log(`Server is running on port ${port}`);
 });
