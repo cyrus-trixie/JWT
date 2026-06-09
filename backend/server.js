@@ -15,11 +15,11 @@ app.get('/', (req, res) => {
 
 
 app.post("/api/signup", async (req, res) => {
-  const { email, password } = req.body;
+  const { email, password,userName} = req.body;
 
   const result = await supabase
     .from("users")
-    .insert([{ email, password }]);
+    .insert([{ email, password,userName}]);
 
   res.json(result);
 });
