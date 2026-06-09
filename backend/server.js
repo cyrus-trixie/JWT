@@ -12,9 +12,17 @@ app.get('/', (req, res) => {
   res.send('Server is alive');
 });
 
-app.get('/gay',(req,res)=>{
-    res.send("gay");
-})
+
+
+app.post("/api/signup", async (req, res) => {
+  const { email, password } = req.body;
+
+  const result = await supabase
+    .from("users")
+    .insert([{ email, password }]);
+
+  res.json(result);
+});
 
 // start server
 app.listen(port, () => {
