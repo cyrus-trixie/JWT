@@ -12,6 +12,10 @@ app.get('/', (req, res) => {
   res.send('Server is alive');
 });
 
+app.get('/gay',(req,res)=>{
+    res.send("gay");
+})
+
 // start server
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
